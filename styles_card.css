@@ -1,0 +1,178 @@
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+body {
+    background-image: url("bg-image.jpg");
+    animation-duration: 0.5s;
+    animation-name: fadein;
+    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*center card*/
+div.bigdiv {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*card stylings*/
+img.frontcard {
+    border-radius: 30px;
+    width: 50vw;
+    height: 31.25vw;
+    filter: drop-shadow(10px 10px 2px #292a43be);
+}
+
+div.backcard {
+    border-radius: 30px;
+    padding: 0%;
+    width: 50vw;
+    height: 0vw;
+    filter: drop-shadow(10px 10px 2px #292a43be);
+    position: absolute;
+    z-index: 0;
+    background-color: #b3b3ff;
+    text-align: center;
+    }
+/*card text styling*/
+@font-face {
+    font-family: riffic;
+    src: url("riffic.ttf");
+}
+.text, #submit {
+    font-family: riffic;
+    color: #19087d;
+    text-align: center;
+    font-size: 0%;
+    opacity: 0%;
+    text-shadow: 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 5px 5px 2px #292a43be;
+}
+
+/*text input styling*/
+input {
+    opacity: 0%;
+    animation-name: fadein;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+#inputdiv {
+    display: inline-block;
+}
+
+#message {
+    opacity:0%;
+    width: 40vw;
+    height: 45vh;
+    border-radius: 3%;
+    border: none;
+    background-color: #b3b3ff;
+    margin: 2%;
+    font-family: riffic;
+    color: #19087d;
+    text-align: center;
+    text-shadow: 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 0px 0px 3px white, 5px 5px 2px #292a43be;
+    font-size: 200%;
+    padding: 1%;
+    word-break: break-all;
+    animation-name: fadein;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+#message:focus {
+    outline: none;
+}
+
+#submit {
+    width: 10vw;
+    height: 7vh;
+    border-radius: 10%;
+    border: none;
+    filter: drop-shadow(5px 5px 2px #292a43be);
+    margin: 2%;
+    animation-name: textfadein-small;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;   
+}
+
+/*flip animation*/
+@keyframes flip_half1 {
+    from {height: 31.25vw;}
+    to {height: 0vw;}
+}
+
+@keyframes flip_half2 {
+    from {height: 0vw;}
+    to {height: 31.25vw;}
+}
+
+@keyframes positionchange {
+    from {position: absolute;}
+    to {position: relative;}
+}
+
+/*scale animation*/
+@keyframes scaleup {
+    from {width: 50vw; height: 31.25vw; padding:0%;}
+    to {width: 75vw; height: 46.875vw; padding:1%}
+}
+
+/*text animation*/
+@keyframes textfadein {
+    from { font-size: 0%; opacity: 0; }
+    to   { font-size: 400%; opacity: 1; }
+} /*big*/
+@keyframes textfadein-small {
+    from { font-size: 0%; opacity: 0; }
+    to   { font-size: 300%; opacity: 1; }
+} /*small*/
+
+/*making the frontcard in front of the backcard + in the same position*/
+img.frontcard {
+    position: relative;
+    z-index: 1;
+    animation-name: flip_half1;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-delay: 0;
+}
+div.backcard {
+    animation-name: flip_half2, positionchange, scaleup;
+    animation-duration: 0.5s, 0.01ms, 0.75s;
+    animation-delay: 0.5s, 0.5s, 1s;
+    animation-timing-function: ease-out, ease-out, ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+h1.text {
+    animation-name: textfadein;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+h2.text {
+    animation-name: textfadein-small;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;    
+}
+
+/*making the text on top of the placeholder image*/
